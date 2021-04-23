@@ -1,0 +1,17 @@
+{
+  "name": "wizeline",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-all-chrome": "testcafe chrome Page_Model/Tests/*.js",
+    "test-all-edge": "testcafe edge Page_Model/test/*.js",
+    "test-all-firefox": "testcafe firefox Page_Model/test/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ricardo Ramirez",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^15.14.0"
+  }
+}
