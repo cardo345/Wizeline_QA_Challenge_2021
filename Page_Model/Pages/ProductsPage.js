@@ -32,7 +32,7 @@ class ProductsPage{
             .click(this.lowToHigh)
     }
     async validateProducts(precio1, precio2){
-        if (precio1 < precio2) {
+        if (precio1 <= precio2) {
             return true
         }
         else return false
@@ -69,8 +69,9 @@ class ProductsPage{
         await t.hover(this.onesieName)      
     }
     async getProductsPrices(i){
-        const prodPrice = Selector('inventory_item_price').nth(i) 
-        return prodPrice.innerText
+        const prodPrice = Selector('.inventory_item:nth-child('+ i + ') .inventory_item_price')
+        //console.log(await prodPrice.innerText)
+        return await prodPrice.innerText
     }
 }
 
