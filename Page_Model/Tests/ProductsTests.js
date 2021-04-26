@@ -11,5 +11,13 @@ test('Sort products from', async t=>{
         await t.expect(ProductsPage.pageHeader.exists).ok()
     await t
         ProductsPage.sortProducts()
-    await t.expect(await ProductsPage.validateProducts()).ok()
+        let price = new Array(6)
+        for(let i = 0; i < 5; i++){
+            price[i] = ProductsPage.getProductsPrices(i)
+    }
+        for(let j = 0; j < 5; j++){
+            let precio1 = price[j]
+            let precio2 = price[j + 1]
+            await t.expect(ProductsPage.validateProducts(precio1,precio2)).ok()
+}
 })

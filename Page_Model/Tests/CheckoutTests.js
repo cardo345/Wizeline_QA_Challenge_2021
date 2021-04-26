@@ -12,11 +12,17 @@ fixture('Cart Page Scenarios')
 test('Complete the Purchase', async t=>{
     LoginPage.submitLogin(CREDENTIALS.STANDARD_USER.USER, CREDENTIALS.STANDARD_USER.PSWD)
     await t.expect(ProductsPage.pageHeader.exists).ok()
-    ProductsPage.addMultipleProducts()
+    for(let i = 0; i <= 5; i++){
+    await t
+        ProductsPage.addMultipleProducts(i)
+    }
+        ProductsPage.clickCartbutton()
     await t.expect(CartPage.cartPageHeader.exists).ok()
-    CartPage.checkoutClick()
-    CheckoutPage.enterMailInfo(CREDENTIALS.MAIL_INFORMATION.FIRST, CREDENTIALS.MAIL_INFORMATION.LAST, CREDENTIALS.MAIL_INFORMATION.POSTAL)
-    OverviewPage.finishPurchase()
+    await t
+        CartPage.checkoutClick()
+    await t    
+        CheckoutPage.enterMailInfo(CREDENTIALS.MAIL_INFORMATION.FIRST, CREDENTIALS.MAIL_INFORMATION.LAST, CREDENTIALS.MAIL_INFORMATION.POSTAL)
+        OverviewPage.finishPurchase()
     await t
         .expect(ConfirmationPage.confirmationTitle.innerText).eql('CHECKOUT: COMPLETE!')
         .expect(ConfirmationPage.confirmationHeader.innerText).eql('THANK YOU FOR YOUR ORDER')

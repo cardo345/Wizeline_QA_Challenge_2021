@@ -12,24 +12,20 @@ fixture('Cart Page Scenarios')
 })
 
 test('Add Multiple Items to the shopping cart', async t=>{
-    var backpack = ProductsPage.backpackName.innerText
-    var light = ProductsPage.lightName.innerText
-    var shirt = ProductsPage.shirtName.innerText
-    var fleeceJacket = ProductsPage.fleeceJacketName.innerText
-    var onesie = ProductsPage.onesieName.innerText
-    var redShirt = ProductsPage.redShirtName.innerText
+    for(let i = 0; i <= 5; i++){
     await t
-        ProductsPage.addMultipleProducts()
-        CartPage.validateCart(backpack,light,shirt,fleeceJacket,onesie,redShirt)
+        ProductsPage.addMultipleProducts(i)
+    }
+        ProductsPage.clickCartbutton()
     await t
-        .expect(CartPage.cartPageHeader.innerText).eql('YOUR CART')
+        .expect(CartPage.cartPageHeader.innerText).eql('YOUR CART')  
+        .expect(await ProductsPage.validateProductsAdded()).ok()
 })
 
 test('Add Onesie Product to the shopping cart', async t=>{
-    var onesie = ProductsPage.onesieName.innerText
     await t
         ProductsPage.addOnesieProduct()
     await t
     .expect(CartPage.cartPageHeader.exists).ok()
-    .expect(CartPage.cartItem1.innerText).eql(await onesie)
+    .expect(ProductsPage.validateOnesie).ok()
 })
