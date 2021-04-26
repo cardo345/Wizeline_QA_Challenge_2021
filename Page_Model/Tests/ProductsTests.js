@@ -16,7 +16,6 @@ test('Sort products from', async t=>{
         for(let i = 1; i <= 6; i++){
             price[i - 1] = await ProductsPage.getProductsPrices(i)
             price[i - 1] = Math.abs(price[i - 1].slice(1,6))
-            //console.log(price[i - 1])
     }
         for(let j = 0; j < 5; j++){
             let precio1 = price[j]

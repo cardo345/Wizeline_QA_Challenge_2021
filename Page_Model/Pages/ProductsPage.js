@@ -65,7 +65,6 @@ class ProductsPage{
     }
     async getProductsPrices(i){
         const prodPrice = Selector('.inventory_item:nth-child('+ i + ') .inventory_item_price')
-        //console.log(await prodPrice.innerText)
         return await prodPrice.innerText
     }
 }
