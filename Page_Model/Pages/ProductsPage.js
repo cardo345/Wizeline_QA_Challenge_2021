@@ -46,17 +46,11 @@ class ProductsPage{
     }
     async validateProductsAdded(){
         if(await t.hover(this.backpackName)){
-            console.log('1')
             if(await t.hover(this.lightName)){
-                console.log('2')
                 if(await t.hover(this.shirtName)){
-                    console.log('3')
                     if(await t.hover(this.fleeceJacketName)){
-                        console.log('4')
                         if(await t.hover(this.onesieName)){
-                            console.log('5')
                             if(await t.hover(this.redShirtName)){
-                                console.log('6')
                                 return true
                             }
                         }

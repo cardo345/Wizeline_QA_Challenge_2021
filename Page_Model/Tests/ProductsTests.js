@@ -13,7 +13,8 @@ test('Sort products from', async t=>{
         ProductsPage.sortProducts()
         let price = new Array(6)
         for(let i = 0; i < 5; i++){
-            price[i] = ProductsPage.getProductsPrices(i)
+            price[i] = await ProductsPage.getProductsPrices(i)
+            console.log(price[i])
     }
         for(let j = 0; j < 5; j++){
             let precio1 = price[j]
