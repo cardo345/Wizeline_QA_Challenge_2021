@@ -7,7 +7,7 @@ class ProductsPage{
         this.sortButton = Selector('.product_sort_container')
         this.burguerButton = Selector('#react-burger-menu-btn')
         this.logoutButton = Selector('#logout_sidebar_link')
-        this.lowToHigh = Selector('.product_sort_container option:nth-child(3)')
+        this.lowToHigh = Selector('option').nth(2)
         this.addOnesieButton = Selector('#add-to-cart-sauce-labs-onesie')
         this.itemName = Selector('.inventory_item_name')
         this.addToCart = Selector('.btn_inventory')

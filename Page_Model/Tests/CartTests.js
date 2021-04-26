@@ -11,7 +11,7 @@ fixture('Cart Page Scenarios')
     await t.expect(ProductsPage.pageHeader.exists).ok()
 })
 
-test.only('Add Multiple Items to the shopping cart', async t=>{
+test('Add Multiple Items to the shopping cart', async t=>{
     for(let i = 0; i <= 5; i++){
     await t
         ProductsPage.addMultipleProducts(i)
