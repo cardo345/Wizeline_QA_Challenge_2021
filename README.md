@@ -9,3 +9,9 @@ https://github.com/cardo345/Wizeline_QA_Challenge_2021
 - npm install testcafe
 - npm install testcafe-reporter-html
 - npm install dotenv
+
+# Running-the-tests
+- Execute 'npm run Test-all-chrome' script to run all tests using Chrome browser.
+- Execute 'npm run Test-all-edge' script to run all tests using Edge browser.
+- Execute 'npm run Test-all-firefox' script to run all tests using Firefox browser.
+- Execute 'npm run Test-all-safari' script to run all tests using Safari browser.
