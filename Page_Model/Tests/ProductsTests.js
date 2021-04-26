@@ -20,9 +20,7 @@ test('Sort products from', async t=>{
     }
         for(let j = 0; j < 5; j++){
             let precio1 = price[j]
-            console.log(precio1)
             let precio2 = price[j + 1]
-            console.log(precio2)
             await t.expect(await ProductsPage.validateProducts(precio1,precio2)).ok()
 }
 })

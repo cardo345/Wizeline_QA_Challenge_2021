@@ -11,15 +11,7 @@ class ProductsPage{
         this.addOnesieButton = Selector('#add-to-cart-sauce-labs-onesie')
         this.itemName = Selector('.inventory_item_name')
         this.addToCart = Selector('.btn_inventory')
-        this.cartButton = Selector('.shopping_cart_link')
-        this.backpackName = Selector('#item_4_title_link > div')
-        this.lightName = Selector('#item_0_title_link > div')
-        this.shirtName = Selector('#item_1_title_link > div')
-        this.fleeceJacketName = Selector('#item_5_title_link > div')
-        this.onesieName = Selector('#item_2_title_link > div')
-        this.redShirtName = Selector('#item_3_title_link > div')
-
-        
+        this.cartButton = Selector('.shopping_cart_link')        
     }
     async logoutUser(){
         await t
@@ -44,21 +36,24 @@ class ProductsPage{
     async clickCartbutton(){
         await t.click(this.cartButton)
     }
-    async validateProductsAdded(){
-        if(await t.hover(this.backpackName)){
-            if(await t.hover(this.lightName)){
-                if(await t.hover(this.shirtName)){
-                    if(await t.hover(this.fleeceJacketName)){
-                        if(await t.hover(this.onesieName)){
-                            if(await t.hover(this.redShirtName)){
-                                return true
-                            }
-                        }
-                    }
-                }
-            }
+    async validateProductsAdded(i){
+        let itemName = Selector('.cart_item:nth-child('+ i +') .inventory_item_name')
+        switch(await itemName.innerText){
+            case 'Sauce Labs Backpack':
+                return true
+            case 'Sauce Labs Bike Light':
+                return true
+            case 'Sauce Labs Bolt T-Shirt':
+                return true
+            case 'Sauce Labs Fleece Jacket':
+                return true
+            case 'Sauce Labs Onesie':
+                return true
+            case 'Test.allTheThings() T-Shirt (Red)':
+                return true
+            default:
+                return false
         }
-        else return false
     }
     async addOnesieProduct(){
         await t

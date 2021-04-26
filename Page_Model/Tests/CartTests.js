@@ -11,15 +11,17 @@ fixture('Cart Page Scenarios')
     await t.expect(ProductsPage.pageHeader.exists).ok()
 })
 
-test('Add Multiple Items to the shopping cart', async t=>{
+test.only('Add Multiple Items to the shopping cart', async t=>{
     for(let i = 0; i <= 5; i++){
     await t
         ProductsPage.addMultipleProducts(i)
     }
         ProductsPage.clickCartbutton()
     await t
-        .expect(CartPage.cartPageHeader.innerText).eql('YOUR CART')  
-        .expect(await ProductsPage.validateProductsAdded()).ok()
+        .expect(CartPage.cartPageHeader.innerText).eql('YOUR CART') 
+    for(let i = 3; i <= 8; i++){ 
+        await t.expect(await ProductsPage.validateProductsAdded(i)).ok()
+    }
 })
 
 test('Add Onesie Product to the shopping cart', async t=>{
